@@ -12,9 +12,4 @@ class info extends Model
     {
         return $this->belongsTo(shippment::class);
     }
-
-    public function user()
-    {
-        return $this->blongsTo(User::class);
-    }
 }

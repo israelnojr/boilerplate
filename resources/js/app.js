@@ -52,7 +52,7 @@ let routes = [
       path: '/shippment', name: 'shippment', component: require('./components/Shippment.vue').default  
     },
     { 
-      path: '/info', name: 'info', component: require('./components/Info.vue').default  
+      path: '/info', name: 'info', component: require('./components/Infos.vue').default  
     }
   ]
 

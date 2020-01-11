@@ -25,8 +25,8 @@
                             <th>Booking Mode</th>
                             <th>Total Freight</th>
                             <th>Pick Up</th>
-                             <th>Description</th>
-                              <th>Registered Date</th>
+                            <th>Description</th>
+                            <th>Registered Date</th>
                             <th>Action</th>
 
                         </tr>
@@ -45,8 +45,12 @@
                             <td>{{shippment.description}}</td>
                             <td>{{shippment.created_at | myDate}}</td>
                             <td>
-                                <a class="btn btn-info mb-2" href="#" @click="editModal(shippment)"><i class="fa fa-edit blue"></i></a>                               
-                                <button class="btn btn-danger" href="#" @click="deleteshippment(shippment.id)"><i class="fa fa-trash red"></i></button>
+                                <a class="btn btn-info mb-2" href="#" @click="editModal(shippment)">
+                                    <i class="fa fa-edit blue"></i>
+                                </a>                               
+                                <button class="btn btn-danger" href="#" @click="deleteshippment(shippment.id)">
+                                    <i class="fa fa-trash red"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -234,11 +238,12 @@
                     'Shippment details updated successfully',
                     'success'
                     )  
-                     this.$Progress.finish()
+                    this.$Progress.finish()
                 })
 
-                .catch(() => {
-                   this.$Progress.fail()
+                .catch(response => {
+                    this.$Progress.fail()
+                    swal(response.status, response.body.error, "error");
                 })
 
                 // alert('Edit data')
@@ -252,7 +257,7 @@
             },
 
             createModal(){
-                 this.editMode = false;
+                this.editMode = false;
                 this.form.reset();
                 $('#AddNew').modal('show')
             },
@@ -298,9 +303,10 @@
                     type: 'success',
                     title: 'Shippment Created Successfully'
                     })
-                this.$Progress.finish()
+                    this.$Progress.finish()
                 })
                 .catch(() =>{
+                    swal("Failed!", "There was something wrong.", "warning");
                     this.$Progress.fail()
                 })
             }

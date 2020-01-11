@@ -17,6 +17,7 @@ class CreateShippmentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('key')->unique();
+            $table->unsignedBigInteger('user_id');
 
             $table->string('shipperName');
             $table->string('shipperNum');
